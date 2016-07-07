@@ -45,8 +45,8 @@ public class StockManager
      *         with a matching ID.
      */
     public Product findProduct(int id){
-            //recordemos¡¡¡. un bucle while: en una busqueda, deja de iterar cuando encuentra lo que busca.
-            //teniendo en cuenta que nos piden devolver null si no tenemos el producto buscado, hemos de crea un objeto Producto 
+        //recordemos¡¡¡. un bucle while: en una busqueda, deja de iterar cuando encuentra lo que busca.
+        //teniendo en cuenta que nos piden devolver null si no tenemos el producto buscado, hemos de crea un objeto Producto 
         Product producto = null;   //con valor null.
         //en este caso, para que funcione el bucle while necesito una VL booleana y otra más de tipo entero.
         boolean encontrado = true;
@@ -70,7 +70,21 @@ public class StockManager
      */
     public int numberInStock(int id)
     {
-        return 0;
+        int valor = 0;
+        for (int index = 0; index<stock.size(); index++) {
+            if (stock.get(index).getID()==id) {
+                valor++;
+            }
+        }
+        return valor;
+        //         int valor = 0;
+        //         Product producto = findProduct(id);
+        //         for(int i = 0; i < stock.size(); i++){
+        //             if( (stock.get(i).getID() == producto.getID()) && (producto != null) ){
+        //                 valor ++;
+        //             }
+        //         }
+        //         return valor;
     }
 
     /**
@@ -81,7 +95,6 @@ public class StockManager
         for(Product producto: stock){
             System.out.println(producto.toString());
         }
-        //         Product producto = null;
-        //         producto.toString();
+
     }
 }
