@@ -44,9 +44,21 @@ public class StockManager
      * @return The identified product, or null if there is none
      *         with a matching ID.
      */
-    public Product findProduct(int id)
-    {
-        return null;
+    public Product findProduct(int id){
+            //recordemos¡¡¡. un bucle while: en una busqueda, deja de iterar cuando encuentra lo que busca.
+            //teniendo en cuenta que nos piden devolver null si no tenemos el producto buscado, hemos de crea un objeto Producto 
+        Product producto = null;   //con valor null.
+        //en este caso, para que funcione el bucle while necesito una VL booleana y otra más de tipo entero.
+        boolean encontrado = true;
+        int index = 0;
+        while(encontrado && stock.size() > index){//mientras estas dos condiciones se cumplan, el bucle recorrerá la colección.
+            if(stock.get(index).getID() == id){   // de producto en producto. ¡Si el ID de uno de los productos es == al id 
+                producto = stock.get(index);      //pasado como parámetro. lo almacenamos en la VL producto. y..
+                encontrado = false;               //cambiamos el valor de  la VL encontrado a false para que el while deje de iterar.
+            }
+            index ++;                             //importante¡¡¡ aumentar el contador.
+        } 
+        return producto;  //finalmente esta la VL producto devuelve el valor que se haya almacenado en ella a lo largo del proceso
     }
 
     /**
