@@ -30,13 +30,22 @@ public class StockManager
     }
 
     /**
-     * Receive a delivery of a particular product.
+     * Receive a delivery of a particular product.   ------Recibe una entrega de un producto en particular.
      * Increase the quantity of the product by the given amount.
      * @param id The ID of the product.
      * @param amount The amount to increase the quantity by.
      */
     public void delivery(int id, int amount)
     {
+
+        Product product = findProduct(id);
+        if(product != null){
+            product.increaseQuantity(amount);
+            product.getQuantity();
+        }
+        else{
+            System.out.println("No hay productos con el ID: " +id);
+        }
     }
 
     /**
@@ -71,20 +80,16 @@ public class StockManager
     public int numberInStock(int id)
     {
         int valor = 0;
+        Product producto = findProduct(id);
+        if(producto != null){
+            valor = producto.getQuantity();
+        }
         for (int index = 0; index<stock.size(); index++) {
             if (stock.get(index).getID()==id) {
                 valor++;
             }
         }
         return valor;
-        //         int valor = 0;
-        //         Product producto = findProduct(id);
-        //         for(int i = 0; i < stock.size(); i++){
-        //             if( (stock.get(i).getID() == producto.getID()) && (producto != null) ){
-        //                 valor ++;
-        //             }
-        //         }
-        //         return valor;
     }
 
     /**
