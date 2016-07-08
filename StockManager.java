@@ -109,17 +109,25 @@ public class StockManager
             }
         }
     }
-    
+
     /**
      * permita encontrar productos por su nombre en vez de por su id. En caso de no encontrarse una coincidencia exacta
      * el método devuelve null. La cabecera del método debe ser: -------------------------------------------------- 0065
      */
     public Product findProduct(String name){
         Product producto = null;
-        
+        int index = 0;
+        boolean encontrado = false;
+        while(index <  stock.size() && !encontrado){
+            if(stock.get(index).getName().equals(name)){
+                producto = stock.get(index);
+                encontrado = true;
+            }
+            index ++;
+        }
         return producto;
     }
-    
+
     /**
      * Print details of all the products.
      */
