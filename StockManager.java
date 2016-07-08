@@ -26,7 +26,13 @@ public class StockManager
      */
     public void addProduct(Product item)
     {
-        stock.add(item);
+        Product producto = findProduct(item.getID());
+        if( (producto != null) && (item.getName() != producto.getName()) ){
+            System.out.println("Error, producto con un ID ya exixtente");
+        }
+        else{
+            stock.add(item);
+        }
     }
 
     /**
@@ -100,11 +106,8 @@ public class StockManager
         for(Product producto: stock){
             if(producto.getQuantity() < cantidad){
                 System.out.println(producto);
-                //printProductDetails();
             }
         }
-
-
     }
 
     /**
