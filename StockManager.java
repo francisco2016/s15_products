@@ -27,7 +27,7 @@ public class StockManager
     public void addProduct(Product item)
     {
         Product producto = findProduct(item.getID());
-        if( (producto != null) && (item.getName() != producto.getName()) ){
+        if( (producto != null) && (item.getName() == producto.getName()) ){
             System.out.println("Error, producto con un ID ya exixtente");
         }
         else{
@@ -109,7 +109,17 @@ public class StockManager
             }
         }
     }
-
+    
+    /**
+     * permita encontrar productos por su nombre en vez de por su id. En caso de no encontrarse una coincidencia exacta
+     * el método devuelve null. La cabecera del método debe ser: -------------------------------------------------- 0065
+     */
+    public Product findProduct(String name){
+        Product producto = null;
+        
+        return producto;
+    }
+    
     /**
      * Print details of all the products.
      */
