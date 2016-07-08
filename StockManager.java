@@ -37,7 +37,6 @@ public class StockManager
      */
     public void delivery(int id, int amount)
     {
-
         Product product = findProduct(id);
         if(product != null){
             product.increaseQuantity(amount);
@@ -90,6 +89,22 @@ public class StockManager
             }
         }
         return valor;
+    }
+
+    /**
+     * imprime los detalles de todos los productos cuyo stock está por debajo de un determinado número que será pasado 
+     * como parámetro al método ---------------------------------------------------------------------------------- 0065
+     */
+    public void underGivenNumberInStock(int cantidad){
+        System.out.println("Productos con una cantidad inferior a " +cantidad+ " unidades.");
+        for(Product producto: stock){
+            if(producto.getQuantity() < cantidad){
+                System.out.println(producto);
+                //printProductDetails();
+            }
+        }
+
+
     }
 
     /**
